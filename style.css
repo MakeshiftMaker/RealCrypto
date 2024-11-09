@@ -88,8 +88,10 @@ body {
     animation: floatIn 1s ease-out forwards;
     animation-delay: 0.1s;
     position: sticky;
-    top: 0; /* Stick to the top of the viewport */
-    z-index: 10; /* Ensure it stays above other content */
+    top: 0;
+    /* Stick to the top of the viewport */
+    z-index: 10;
+    /* Ensure it stays above other content */
 }
 
 /* Main Content: Transparent background with subtle light purple tint */
@@ -123,9 +125,10 @@ body {
     animation: floatIn 1s ease-out forwards;
     animation-delay: 5s;
     position: sticky;
-    bottom: 0; /* Stick to the bottom of the viewport */
+    bottom: 0;
+    /* Stick to the bottom of the viewport */
     z-index: 10;
-    
+
 }
 
 /* Footer with the same transparent white effect as header */
@@ -141,7 +144,8 @@ body {
     animation: floatIn 1s ease-out forwards;
     animation-delay: 3s;
     position: sticky;
-    bottom: 0; /* Stick to the bottom of the viewport */
+    bottom: 0;
+    /* Stick to the bottom of the viewport */
     z-index: 10;
 }
 
@@ -200,13 +204,34 @@ body {
     animation-delay: 22s;
 }
 
+.codeInput form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 #inputField {
     margin-top: 10px;
     width: 30%;
     height: 50px;
     border-radius: 7px;
-    font-size: 20px; /* Increase font size */
-    line-height: 1.5; /* Adjust line height for readability */
+    font-size: 20px;
+    /* Increase font size */
+    line-height: 1.5;
+    /* Adjust line height for readability */
+}
+
+.codeInput figure {
+    color: darkred;
+    font-weight: 400;
+    font-size: 20px;
+    display: none;
+}
+
+.codeInput img {
+    width: 50px;
+    display: none;
 }
 
 .space-mono-regular {
@@ -245,12 +270,4 @@ body {
         transform: translateY(0);
         /* Moves to its original position */
     }
-}
-
-*,
-*::before,
-*::after {
-    animation: none !important;
-    transition: none !important;
-    
 }
