@@ -1,0 +1,256 @@
+/* Base styles for all screen sizes */
+body {
+
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles for small screens (up to 400px wide) */
+@media (max-width: 400px) {
+    body {
+        font-size: 14px;
+        background-color: #f0f0f0;
+    }
+
+    /* Add additional small screen styles here */
+}
+
+/* Styles for medium screens (up to 800px wide) */
+@media (min-width: 401px) and (max-width: 800px) {
+    body {
+        font-size: 16px;
+        background-color: #e0e0e0;
+    }
+
+    /* Add additional medium screen styles here */
+}
+
+/* Styles for large screens (up to 1200px wide) */
+@media (min-width: 801px) and (max-width: 1200px) {
+    body {
+        font-size: 18px;
+        background-color: #d0d0d0;
+    }
+
+
+    /* Add additional large screen styles here */
+}
+
+/* Styles for extra-large screens (1201px and above) */
+@media (min-width: 1201px) {
+    body {
+        font-size: 20px;
+        background-color: #c0c0c0;
+    }
+
+    .container {
+        padding: 40px;
+    }
+
+    /* Add additional extra-large screen styles here */
+}
+
+.grid-container>* {
+    opacity: 0;
+}
+
+/* Container for the entire layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 90px 1fr 90px;
+    grid-template-areas:
+        "top_ad top_ad top_ad"
+        "main main main"
+        "bottom_ad bottom_ad sidebar";
+    gap: 10px;
+    height: auto;
+    background: linear-gradient(135deg, #5A189A, #9D4EDD);
+    /* Purple gradient background */
+    color: #FFFFFF;
+    /* White text by default */
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header with a semi-transparent white background */
+.header {
+    grid-area: top_ad;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Transparent white */
+    color: #E0B0FF;
+    /* Light purple text */
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    animation: floatIn 1s ease-out forwards;
+    animation-delay: 0.1s;
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 10; /* Ensure it stays above other content */
+}
+
+/* Main Content: Transparent background with subtle light purple tint */
+.main {
+    grid-area: main;
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Light transparent white */
+    color: #EFEFEF;
+    /* Off-white text */
+    padding: 20px;
+    border-radius: 8px;
+    font-family: "Space Mono", monospace;
+    font-weight: 800;
+    text-align: center;
+    font-size: xx-large;
+    animation: floatIn 1s ease-out forwards;
+    animation-delay: 8s;
+    overflow-y: auto;
+}
+
+
+/* Sidebar: Light purple with more transparency */
+.sidebar {
+    grid-area: sidebar;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Transparent light purple */
+    color: #FFFFFF;
+    /* White text */
+    padding: 20px;
+    border-radius: 8px;
+    animation: floatIn 1s ease-out forwards;
+    animation-delay: 5s;
+    position: sticky;
+    bottom: 0; /* Stick to the bottom of the viewport */
+    z-index: 10;
+    
+}
+
+/* Footer with the same transparent white effect as header */
+.footer {
+    grid-area: bottom_ad;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Transparent white */
+    color: #E0B0FF;
+    /* Light purple text */
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    animation: floatIn 1s ease-out forwards;
+    animation-delay: 3s;
+    position: sticky;
+    bottom: 0; /* Stick to the bottom of the viewport */
+    z-index: 10;
+}
+
+.slogans p {
+    font-family: "Ibm Plex Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+.line {
+    opacity: 0;
+    /* Initially hidden */
+    animation: floatIn 1s ease-out forwards;
+    /* Apply fade-in animation */
+    margin: 10px 0;
+    /* Add spacing between lines */
+}
+
+.slogans .line:nth-child(1) {
+    animation-delay: 9s;
+    /* First line with no delay */
+}
+
+.slogans .line:nth-child(2) {
+    animation-delay: 10s;
+    /* Second line appears slightly later */
+}
+
+.slogans .line:nth-child(3) {
+    animation-delay: 11s;
+    /* Third line appears later */
+}
+
+.slogans .line:nth-child(4) {
+    animation-delay: 12s;
+    /* Fourth line appears later */
+}
+
+.slogans .line:nth-child(5) {
+    animation-delay: 18s;
+    /* Fifth line appears last */
+}
+
+.bars {
+    opacity: 0;
+    animation: floatIn 6s ease-out forwards;
+    animation-delay: 20s;
+    display: flex;
+    flex-direction: column;
+}
+
+.codeInput {
+    opacity: 0;
+    animation: floatIn 1s ease-out forwards;
+    animation-delay: 22s;
+}
+
+#inputField {
+    margin-top: 10px;
+    width: 30%;
+    height: 50px;
+    border-radius: 7px;
+    font-size: 20px; /* Increase font size */
+    line-height: 1.5; /* Adjust line height for readability */
+}
+
+.space-mono-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.space-mono-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.space-mono-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+}
+
+@keyframes floatIn {
+    0% {
+
+        transform: translateY(20px);
+        /* Starts slightly down */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* Moves to its original position */
+    }
+}
+
+*,
+*::before,
+*::after {
+    animation: none !important;
+    transition: none !important;
+    
+}
