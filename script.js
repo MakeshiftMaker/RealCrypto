@@ -70,13 +70,15 @@ function hideBuffer() {
     bufferGif.style.display = "none";
 }
 
-function fillProgressBar(id, duration) {
+function fillProgressBar(id, duration, finishFunction) {
     let progressBar = document.getElementById(id);
-    let value = 0; // Initial value
+    if(!progressBar) return;
+    let value = progressBar.value; // Initial value
     let increment = 100 / (duration / 10); // How much to increment each tick (10 ms)
 
     let interval = setInterval(() => {
         if (value >= 100) {
+            finishFunction();
             clearInterval(interval); // Stop when width reaches 100%
         } else {
             value += increment;
@@ -86,9 +88,28 @@ function fillProgressBar(id, duration) {
     }, 10); // Update every 10 milliseconds
 }
 
-// Start the progress bar with a 5-second (5000 ms) animation duration
-fillProgressBar("longProgress", (getRandomInt(15) + 15) * 60000); //15 to 30 minutes lmao
+function emptyProgressBar(id, duration) {
+    let progressBar = document.getElementById(id);
+    if(!progressBar) return;
+    progressBar.value = 100; // Initial value
+    value = progressBar.value;
+    let decrement = 100 / (duration / 10); // How much to increment each tick (10 ms)
 
+    let interval = setInterval(() => {
+        if (value <= 0) {
+            clearInterval(interval); // Stop when width reaches 100%
+        } else {
+            value -= decrement;
+            console.log(value);
+
+            progressBar.value = value;
+        }
+    }, 10); // Update every 10 milliseconds
+}
+
+// Start the progress bar with a 5-second (5000 ms) animation duration
+//fillProgressBar("longProgress", (getRandomInt(15) + 15) * 60000, showForm); //15 to 30 minutes lmao
+fillProgressBar("longProgress", 5000, showForm);
 
 // URL to redirect to if user doesn't confirm
 const redirectUrl = '/index.html';
@@ -96,20 +117,23 @@ const redirectUrl = '/index.html';
 function showConfirmationDialog() {
     // Redirect timeout in milliseconds (10 seconds to respond)
     var redirectTimeout = (getRandomInt(15)+1)*1000; // 1 to 15 seconds lmaooo
+    
 
     const dialog = document.getElementById('confirmationDialog');
+    if(!dialog) return;
     const confirmButton = document.getElementById('confirmButton');
+    
 
     // Show the dialog
     dialog.showModal();
-
+    emptyProgressBar("timeoutProgress", redirectTimeout);
     // Set a timer to redirect if the user doesn't confirm within the timeout
     const timeoutId = setTimeout(() => {
         if (dialog.open) {
             dialog.close();
         }
-        window.location.href = redirectUrl;
-        alert("Your session has expired, you have been logged out for your safety");
+        window.location.replace("./index.html");
+        //alert("Your session has expired, you have been logged out for your safety");
     }, redirectTimeout);
 
     // If the user clicks confirm, close the dialog and clear the redirect timer
@@ -121,3 +145,9 @@ function showConfirmationDialog() {
 
 // Set an interval to show the popup every 60 seconds
 setInterval(showConfirmationDialog, (getRandomInt(60)+10)*1000); // every 10 to 60 seconds
+
+function showForm(){
+    console.log("finsihed!");
+    const statusField = document.getElementById("statusField");
+    statusField.style.opacity = 1;
+}

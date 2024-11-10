@@ -10,7 +10,7 @@ body {
 /* Styles for small screens (up to 400px wide) */
 @media (max-width: 400px) {
     body {
-        font-size: 14px;
+        font-size: 10px;
         background-color: #f0f0f0;
     }
 
@@ -94,6 +94,10 @@ body {
     /* Stick to the top of the viewport */
     z-index: 10;
     /* Ensure it stays above other content */
+    background-image: url("./src/kys.jpg");
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-size: cover; /* Scales the image to cover the entire area */
+    background-position: center; /* Centers the image */
 }
 
 /* Main Content: Transparent background with subtle light purple tint */
@@ -149,6 +153,10 @@ body {
     bottom: 0;
     /* Stick to the bottom of the viewport */
     z-index: 10;
+    background-image: url("./src/car.png");
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-size: auto; /* Scales the image to cover the entire area */
+    background-position: center; /* Centers the image */
 }
 
 .slogans p {
@@ -258,6 +266,10 @@ body {
     font-family: "Space Mono", monospace;
     font-weight: 700;
     font-style: italic;
+}
+
+.status{
+    opacity: 0;
 }
 
 @keyframes floatIn {
