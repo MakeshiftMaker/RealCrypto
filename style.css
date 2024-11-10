@@ -64,16 +64,18 @@ body {
     grid-template-areas:
         "top_ad top_ad top_ad"
         "main main main"
-        "bottom_ad bottom_ad sidebar";
+        "bottom_ad bottom_ad bottom_ad";
     gap: 10px;
-    height: auto;
+    height: 100vh;
     background: linear-gradient(135deg, #5A189A, #9D4EDD);
     /* Purple gradient background */
     color: #FFFFFF;
     /* White text by default */
     font-family: Arial, sans-serif;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    
 }
+
 
 /* Header with a semi-transparent white background */
 .header {
@@ -270,4 +272,46 @@ body {
         transform: translateY(0);
         /* Moves to its original position */
     }
+}
+
+/* Progress bar styling */
+progress {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 100%; /* Full width */
+    height: 30px; /* Height of the progress bar */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow to maintain rounded edges */
+}
+
+/* Background for the entire progress bar (empty portion) */
+progress::-webkit-progress-bar {
+    background-color: #e0e0e0; /* Light grey background */
+}
+
+progress::-moz-progress-bar {
+    background-color: #e0e0e0;
+}
+
+/* Styling for the filled portion of the progress bar */
+progress::-webkit-progress-value {
+    background-color: #6a1b9a; /* Purple fill color */
+    transition: width 0.3s ease; /* Smooth transition effect */
+}
+
+progress::-moz-progress-bar {
+    background-color: #6a1b9a; /* Purple fill color for Firefox */
+}
+
+/* Text styling inside the progress bar */
+#myProgress::before {
+    content: attr(value) "%"; /* Display current progress as a percentage */
+    position: absolute;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Disable interaction with text */
 }
