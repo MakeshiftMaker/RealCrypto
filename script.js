@@ -108,8 +108,8 @@ function emptyProgressBar(id, duration) {
 }
 
 // Start the progress bar with a 5-second (5000 ms) animation duration
-//fillProgressBar("longProgress", (getRandomInt(15) + 15) * 60000, showForm); //15 to 30 minutes lmao
-fillProgressBar("longProgress", 5000, showForm);
+fillProgressBar("longProgress", (getRandomInt(15) + 15) * 60000, showForm); //15 to 30 minutes lmao
+//fillProgressBar("longProgress", 5000, showForm);
 
 // URL to redirect to if user doesn't confirm
 const redirectUrl = '/index.html';
