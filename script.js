@@ -1,4 +1,4 @@
-console.log("Test");
+//console.log("Test");
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("submitForm");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         inputVal = document.getElementById("inputField").value
         event.preventDefault();
         const random = getRandomInt(3);
-        console.log(random);
+        //console.log(random);
 
         if (random != 2) {
             revealBuffer();
@@ -100,7 +100,7 @@ function emptyProgressBar(id, duration) {
             clearInterval(interval); // Stop when width reaches 100%
         } else {
             value -= decrement;
-            console.log(value);
+            //console.log(value);
 
             progressBar.value = value;
         }
@@ -108,7 +108,10 @@ function emptyProgressBar(id, duration) {
 }
 
 // Start the progress bar with a 5-second (5000 ms) animation duration
-fillProgressBar("longProgress", (getRandomInt(15) + 15) * 60000, showForm); //15 to 30 minutes lmao
+const progressLength = (getRandomInt(15) + 15) * 60000;//15 to 30 minutes lmao
+fillProgressBar("longProgress", progressLength, showForm); 
+console.log("Progress time is: " + progressLength/60000);
+
 //fillProgressBar("longProgress", 5000, showForm);
 
 // URL to redirect to if user doesn't confirm
@@ -116,7 +119,8 @@ const redirectUrl = '/index.html';
 
 function showConfirmationDialog() {
     // Redirect timeout in milliseconds (10 seconds to respond)
-    var redirectTimeout = (getRandomInt(15)+1)*1000; // 1 to 15 seconds lmaooo
+    var redirectTimeout = (getRandomInt(5)+1)*1000; // 1 to 5 seconds lmaooo
+    console.log("React Time is: " + redirectTimeout / 1000);
     
 
     const dialog = document.getElementById('confirmationDialog');
@@ -143,8 +147,10 @@ function showConfirmationDialog() {
     }, { once: true }); // Use { once: true } to prevent multiple event bindings
 }
 
-// Set an interval to show the popup every 60 seconds
-setInterval(showConfirmationDialog, (getRandomInt(60)+10)*1000); // every 10 to 60 seconds
+// Set an interval to show the popup every 10-20 seconds
+const intervalTime = (getRandomInt(10)+10)*1000;
+setInterval(showConfirmationDialog, intervalTime); // every 10 to 60 seconds
+console.log("Interval time is: " + intervalTime/1000);
 
 function showForm(){
     console.log("finsihed!");
